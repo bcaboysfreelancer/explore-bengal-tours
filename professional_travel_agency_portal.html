@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Explore Bengal Tours | Trusted Travel & Holiday Partner</title>
+    <meta name="description" content="Explore Bengal Tours is your premier trusted travel partner for customized holiday packages to Darjeeling, Sikkim, Goa, Kerala, Andaman, and international dream destinations.">
+    
+    <!-- Google Fonts: Inter & Volkhov for premium editorial travel vibe -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Volkhov:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome for Travel Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        traveldark: '#0a192f',      // Deep Navy Ocean
+                        travelblue: '#0284c7',      // Clear Sky Blue
+                        travelaccent: '#f59e0b',    // Golden Warm Sunlight
+                        travelbg: '#f8fafc',        // Soft Misty Gray
+                        textmain: '#334155',        // Readable slate gray
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        serif: ['Volkhov', 'serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <style>
+        /* Custom Fine Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0284c7;
+        }
+
+        /* SPA Custom Page Transition Animation States */
+        .page-transition {
+            transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+        }
+        .page-hidden {
+            opacity: 0;
+            transform: scale(0.995) translateY(8px);
+            pointer-events: none;
+            position: absolute;
+            width: 100%;
+            height: 0;
+            overflow: hidden;
+        }
+        .page-active {
+            opacity: 1;
+            transform: scale(1) translateY(0);
+            pointer-events: auto;
+            position: relative;
+            height: auto;
+        }
+
+        /* Glassmorphism Accents */
+        .glass-nav {
+            background: rgba(10, 25, 47, 0.92);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(226, 232, 240, 0.8);
+            box-shadow: 0 4px 20px -2px rgba(15, 23, 42, 0.04);
+        }
+        .glass-card:hover {
+            border-color: rgba(2, 132, 199, 0.2);
+            box-shadow: 0 12px 30px -5px rgba(15, 23, 42, 0.08);
+        }
+    </style>
+</head>
+<body class="bg-travelbg text-textmain font-sans flex flex-col min-h-screen">
+
+    <!-- Top Announcement Strip (Adds Instant Offline Business Trust) -->
+    <div class="bg-traveldark text-white text-[11px] py-2.5 px-4 font-medium relative z-50">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-2">
+            <div class="flex items-center gap-4 flex-wrap justify-center text-slate-300">
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-hotel text-travelaccent"></i> Govt. Approved Tour Operator (Regd.)</span>
+                <span class="hidden md:inline text-slate-600">|</span>
+                <span class="flex items-center gap-1.5"><i class="fa-solid fa-shield-halved text-travelblue"></i> 100% Secure Bookings & Safe Hotels</span>
+            </div>
+            <div class="flex items-center gap-4 text-[11px] font-semibold">
+                <a href="tel:+919830012345" class="hover:text-travelblue transition-colors"><i class="fa-solid fa-phone text-travelblue mr-1"></i> Call Executive: +91 98300 12345</a>
+                <span class="text-slate-600">|</span>
+                <span id="live-operation-banner" class="flex items-center gap-1.5 text-emerald-400">
+                    <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span> Active Online
+                </span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Sticky Navigation Bar -->
+    <header class="sticky top-0 bg-white/95 backdrop-blur-md border-b border-slate-200 z-40 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo Brand Layout (Real Agency look) -->
+                <div class="flex items-center gap-3 cursor-pointer" onclick="navigateTo('home')">
+                    <div class="w-11 h-11 bg-gradient-to-br from-traveldark to-travelblue text-white rounded-lg flex items-center justify-center shadow-md relative">
+                        <i class="fa-solid fa-compass text-xl animate-spin-slow"></i>
+                    </div>
+                    <div>
+                        <div class="flex items-center gap-1">
+                            <span class="text-lg font-extrabold tracking-tight text-traveldark">Explore Bengal</span>
+                            <span class="text-[9px] bg-travelaccent/20 text-amber-700 px-1.5 py-0.5 rounded font-bold uppercase tracking-wide">Tours</span>
+                        </div>
+                        <span class="text-[10px] tracking-wide text-slate-500 font-semibold block -mt-1">Crafting Unforgettable Journeys Since 2012</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Agency Routes -->
+                <nav class="hidden md:flex items-center space-x-1 lg:space-x-2">
+                    <button onclick="navigateTo('home')" class="nav-btn px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-md transition-all text-travelblue bg-sky-50" data-page="home">Home</button>
+                    <button onclick="navigateTo('packages')" class="nav-btn px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-md transition-all text-slate-600 hover:bg-slate-100 hover:text-traveldark" data-page="packages">Tour Packages</button>
+                    <button onclick="navigateTo('about')" class="nav-btn px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-md transition-all text-slate-600 hover:bg-slate-100 hover:text-traveldark" data-page="about">Our Story</button>
+                    <button onclick="navigateTo('faqs')" class="nav-btn px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-md transition-all text-slate-600 hover:bg-slate-100 hover:text-traveldark" data-page="faqs">Help & FAQs</button>
+                    <button onclick="navigateTo('contact')" class="nav-btn px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-md transition-all text-slate-600 hover:bg-slate-100 hover:text-traveldark" data-page="contact">Contact & Location</button>
+                </nav>
+
+                <!-- Action CTA Desktop -->
+                <div class="hidden lg:flex items-center gap-3">
+                    <button onclick="openCustomPlanner()" class="px-4 py-2.5 bg-traveldark hover:bg-slate-800 text-white text-[11px] font-bold tracking-wider uppercase rounded shadow-sm transition-all flex items-center gap-2">
+                        <i class="fa-solid fa-sliders"></i> Plan Custom Trip
+                    </button>
+                </div>
+
+                <!-- Mobile Navigation Bar Hamburger -->
+                <div class="md:hidden">
+                    <button id="hamburger-btn" class="p-2.5 rounded border border-slate-200 text-slate-700 bg-slate-50 hover:bg-slate-100 focus:outline-none transition-colors">
+                        <i class="fa-solid fa-bars text-lg" id="hamburger-icon"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dynamic Navigation Drawer -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-slate-200 absolute w-full left-0 p-5 flex flex-col space-y-3 shadow-xl z-50">
+            <button onclick="navigateTo('home'); toggleMenu()" class="mobile-nav-btn text-left py-3 px-4 rounded-lg text-xs font-bold tracking-wider uppercase text-travelblue bg-sky-50" data-page="home">Home</button>
+            <button onclick="navigateTo('packages'); toggleMenu()" class="mobile-nav-btn text-left py-3 px-4 rounded-lg text-xs font-bold tracking-wider uppercase text-slate-700 hover:bg-slate-100" data-page="packages">Tour Packages</button>
+            <button onclick="navigateTo('about'); toggleMenu()" class="mobile-nav-btn text-left py-3 px-4 rounded-lg text-xs font-bold tracking-wider uppercase text-slate-700 hover:bg-slate-100" data-page="about">Our Story</button>
+            <button onclick="navigateTo('faqs'); toggleMenu()" class="mobile-nav-btn text-left py-3 px-4 rounded-lg text-xs font-bold tracking-wider uppercase text-slate-700 hover:bg-slate-100" data-page="faqs">Help & FAQs</button>
+            <button onclick="navigateTo('contact'); toggleMenu()" class="mobile-nav-btn text-left py-3 px-4 rounded-lg text-xs font-bold tracking-wider uppercase text-slate-700 hover:bg-slate-100" data-page="contact">Contact & Location</button>
+            <div class="pt-3 border-t border-slate-100 flex flex-col gap-2">
+                <button onclick="openCustomPlanner(); toggleMenu()" class="w-full text-center py-3 rounded bg-travelblue text-white text-xs font-bold uppercase tracking-wider flex items-center justify-center gap-2 shadow-sm">
+                    <i class="fa-solid fa-sliders"></i> Plan Custom Trip
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Dynamic Content Wrapper -->
+    <main class="flex-grow">
+
+        <!-- ============================================= -->
+        <!-- SECTION 1: HOME PAGE                          -->
+        <!-- ============================================= -->
+        <div id="page-home" class="page-transition page-active">
+            
+            <!-- Hero banner showcasing high-quality travel backdrop -->
+            <section class="relative bg-slate-900 overflow-hidden py-24 sm:py-32 lg:py-40 text-white">
+                <div class="absolute inset-0 z-0">
+                    <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&q=80&w=1600" 
+                         alt="Scenic Ocean Peak" 
+                         class="w-full h-full object-cover opacity-35"
+                         onerror="this.onerror=null; this.src='https://placehold.co/1600x800/0f172a/ffffff?text=Beautiful+Destination';">
+                    <div class="absolute inset-0 bg-gradient-to-t from-traveldark via-traveldark/80 to-transparent"></div>
+                </div>
+                
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center lg:text-left">
+                    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                        
+                        <!-- Left Hero Column -->
+                        <div class="lg:col-span-7 space-y-6">
+                            <span class="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full border border-sky-400/30 bg-sky-400/10 text-sky-300 text-[10px] font-bold uppercase tracking-wider">
+                                <i class="fa-solid fa-star text-travelaccent"></i> Multi-Award-Winning Travel Operator in Bengal
+                            </span>
+                            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight font-serif text-white">
+                                Discover New <br> Destinations With <br> <span class="text-travelblue">Confidence</span>
+                            </h1>
+                            <p class="text-slate-300 text-sm sm:text-base max-w-xl mx-auto lg:mx-0 leading-relaxed font-light">
+                                Affordable tours, trusted service, and memorable travel experiences. Explore premium, hand-crafted packages to Darjeeling, Sikkim, Goa, Kerala, Andaman, and beyond with local expert guides.
+                            </p>
+                            
+                            <!-- Static Counter Badges -->
+                            <div class="grid grid-cols-3 gap-4 pt-3 max-w-md mx-auto lg:mx-0 text-left">
+                                <div class="border-l-2 border-travelblue pl-3">
+                                    <span class="text-2xl font-extrabold text-white block">12+ Years</span>
+                                    <span class="text-[9px] uppercase tracking-widest text-slate-400 font-bold block mt-0.5">Experience</span>
+                                </div>
+                                <div class="border-l-2 border-travelblue pl-3">
+                                    <span class="text-2xl font-extrabold text-white block">15,000+</span>
+                                    <span class="text-[9px] uppercase tracking-widest text-slate-400 font-bold block mt-0.5">Happy Guests</span>
+                                </div>
+                                <div class="border-l-2 border-travelblue pl-3">
+                                    <span class="text-2xl font-extrabold text-white block">4.9/5 Star</span>
+                                    <span class="text-[9px] uppercase tracking-widest text-slate-400 font-bold block mt-0.5">Google Rating</span>
+                                </div>
+                            </div>
+
+                            <!-- Hero Actions -->
+                            <div class="flex flex-col sm:flex-row gap-3.5 justify-center lg:justify-start pt-2">
+                                <button onclick="navigateTo('packages')" class="px-7 py-3.5 rounded bg-travelblue hover:bg-sky-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow-md shadow-sky-500/20 flex items-center justify-center gap-2">
+                                    Explore Packages <i class="fa-solid fa-arrow-right-long"></i>
+                                </button>
+                                <button onclick="navigateTo('contact')" class="px-7 py-3.5 rounded bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 font-bold text-xs uppercase tracking-wider transition-all flex items-center justify-center gap-2">
+                                    Contact Travel Desk <i class="fa-solid fa-envelope"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Right Column (Featured Deal Teaser Card) -->
+                        <div class="lg:col-span-5 flex justify-center">
+                            <div class="glass-card bg-slate-950/70 border-slate-800 p-6 rounded-xl w-full max-w-md shadow-2xl relative text-left">
+                                <span class="absolute -top-3 -right-3 bg-red-600 text-white text-[9px] font-bold px-3 py-1 rounded-full uppercase tracking-wider shadow">
+                                    Hot Seller Offer!
+                                </span>
+                                <h3 class="font-serif text-lg text-white mb-1">Weekly Special Spotlight</h3>
+                                <p class="text-[11px] text-slate-400">Exclusive limited-period offer curated by our travel desk.</p>
+                                
+                                <div class="mt-4 relative rounded-lg overflow-hidden h-40 bg-slate-800">
+                                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=400" 
+                                         alt="Darjeeling Tea Garden" 
+                                         class="w-full h-full object-cover"
+                                         onerror="this.onerror=null; this.src='https://placehold.co/400x200/1e293b/ffffff?text=Darjeeling';">
+                                    <div class="absolute bottom-2 left-2 bg-traveldark/85 px-2.5 py-1 rounded text-[10px] font-bold text-white flex items-center gap-1">
+                                        <i class="fa-solid fa-clock text-travelaccent"></i> 5 Days / 4 Nights
+                                    </div>
+                                </div>
+
+                                <div class="mt-4 space-y-2">
+                                    <div class="flex justify-between items-start">
+                                        <h4 class="font-bold text-sm text-white">Premium Darjeeling Heritage Getaway</h4>
+                                        <span class="text-xs font-extrabold text-travelaccent bg-amber-500/15 px-2 py-0.5 rounded">₹12,499<span class="text-[9px] font-normal text-slate-300">/person</span></span>
+                                    </div>
+                                    <p class="text-[11px] text-slate-300 leading-normal line-clamp-2">Experience panoramic sunrise views over Kanchenjunga, heritage toy train rides, and lush organic tea estate walks.</p>
+                                    
+                                    <div class="flex items-center justify-between border-t border-slate-800/80 pt-3 mt-3">
+                                        <span class="text-[10px] text-emerald-400 font-bold flex items-center gap-1">
+                                            <i class="fa-solid fa-circle-check"></i> Standard Premium Hotels
+                                        </span>
+                                        <button onclick="triggerBooking('Premium Darjeeling Heritage Getaway', '₹12,499', '5 Days / 4 Nights')" class="px-3.5 py-1.5 bg-travelblue hover:bg-sky-600 text-white text-[10px] font-bold rounded tracking-wide uppercase transition-all">
+                                            Quick Book
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Trust highlights showing realistic corporate travel setup -->
+            <section class="py-12 bg-white border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-6 text-center divide-y md:divide-y-0 md:divide-x divide-slate-100">
+                        <!-- Badge 1 -->
+                        <div class="pt-4 md:pt-0">
+                            <div class="w-11 h-11 rounded-full bg-sky-50 text-travelblue flex items-center justify-center mx-auto mb-3">
+                                <i class="fa-solid fa-hotel text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-xs sm:text-sm text-slate-900 uppercase tracking-wide">Premium Handpicked Stays</h4>
+                            <p class="text-[11px] text-slate-500 mt-1 max-w-[200px] mx-auto leading-normal">Verified hotels with clean amenities, stunning views, and child/elderly friendly access.</p>
+                        </div>
+                        <!-- Badge 2 -->
+                        <div class="pt-4 md:pt-0">
+                            <div class="w-11 h-11 rounded-full bg-sky-50 text-travelblue flex items-center justify-center mx-auto mb-3">
+                                <i class="fa-solid fa-user-tie text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-xs sm:text-sm text-slate-900 uppercase tracking-wide">Local Expert Guides</h4>
+                            <p class="text-[11px] text-slate-500 mt-1 max-w-[200px] mx-auto leading-normal">Our experienced regional drivers and guides know hidden spots and local safety guidelines perfectly.</p>
+                        </div>
+                        <!-- Badge 3 -->
+                        <div class="pt-4 md:pt-0">
+                            <div class="w-11 h-11 rounded-full bg-sky-50 text-travelblue flex items-center justify-center mx-auto mb-3">
+                                <i class="fa-solid fa-hand-holding-dollar text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-xs sm:text-sm text-slate-900 uppercase tracking-wide">No Hidden Surcharges</h4>
+                            <p class="text-[11px] text-slate-500 mt-1 max-w-[200px] mx-auto leading-normal">Transparent price breakdown. GST, entry tickets, and transfers clearly structured upfront.</p>
+                        </div>
+                        <!-- Badge 4 -->
+                        <div class="pt-4 md:pt-0">
+                            <div class="w-11 h-11 rounded-full bg-sky-50 text-travelblue flex items-center justify-center mx-auto mb-3">
+                                <i class="fa-solid fa-headset text-lg"></i>
+                            </div>
+                            <h4 class="font-bold text-xs sm:text-sm text-slate-900 uppercase tracking-wide">24/7 Live Tour Support</h4>
+                            <p class="text-[11px] text-slate-500 mt-1 max-w-[200px] mx-auto leading-normal">Any issues during your trip? Our dedicated support lines remain online around the clock.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Popular Handpicked Tour Packages Grid -->
+            <section class="py-16 bg-slate-50">
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-10 gap-4">
+                        <div>
+                            <span class="text-xs font-bold text-travelblue uppercase tracking-widest block mb-1">Authentic Local Experts</span>
+                            <h2 class="text-2xl sm:text-3xl font-extrabold text-traveldark font-serif">Popular Tour Packages</h2>
+                        </div>
+                        <button onclick="navigateTo('packages')" class="text-xs font-bold text-travelblue hover:text-sky-700 flex items-center gap-1 group uppercase tracking-wider">
+                            Explore Full Catalog <i class="fa-solid fa-circle-arrow-right group-hover:translate-x-1 transition-transform text-sm"></i>
+                        </button>
+                    </div>
+
+                    <!-- Highlight Grid with 3 major deals (Darjeeling, Sikkim, Andaman) -->
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        
+                        <!-- Package Card 1 -->
+                        <div class="glass-card bg-white rounded-xl overflow-hidden flex flex-col justify-between group transition-all duration-300">
+                            <div class="p-3 relative">
+                                <span class="absolute top-5 left-5 bg-sky-600 text-white text-[9px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider z-10">Kanchenjunga Special</span>
+                                <div class="h-48 w-full bg-slate-100 rounded-lg overflow-hidden relative">
+                                    <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=400" 
+                                         alt="Darjeeling" 
+                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/f1f5f9/0f172a?text=Darjeeling';">
+                                    <div class="absolute bottom-2 left-2 bg-traveldark/90 px-2.5 py-1 rounded text-[10px] font-bold text-white flex items-center gap-1">
+                                        <i class="fa-solid fa-clock text-travelaccent text-[9px]"></i> 5 Days / 4 Nights
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="px-5 pb-5 pt-1 space-y-3">
+                                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Himalayan Escapes</div>
+                                <h3 class="font-bold text-sm text-slate-900 group-hover:text-travelblue transition-colors leading-snug line-clamp-1">Darjeeling Scenic Retreat</h3>
+                                <p class="text-[11px] text-slate-500 leading-normal line-clamp-2">Watch the golden hues of dawn over Mount Kanchenjunga from Tiger Hill, ride the heritage Toy Train, and tour beautiful Mirik Lake.</p>
+                                
+                                <div class="bg-slate-50 p-2.5 rounded text-[10px] space-y-1 text-slate-600 font-medium border border-slate-100">
+                                    <div class="flex justify-between"><span><i class="fa-solid fa-hotel text-travelblue mr-1"></i> Star Hotels</span><span><i class="fa-solid fa-car text-travelblue mr-1"></i> Private Cab</span></div>
+                                    <div class="flex justify-between"><span><i class="fa-solid fa-mug-hot text-travelblue mr-1"></i> Breakfast Included</span><span><i class="fa-solid fa-ticket text-travelblue mr-1"></i> Sightseeing passes</span></div>
+                                </div>
+
+                                <div class="flex items-center justify-between border-t border-slate-100 pt-3.5 mt-1">
+                                    <div>
+                                        <span class="text-[10px] text-slate-400 block font-semibold uppercase">Twin Sharing</span>
+                                        <span class="text-sm font-extrabold text-travelblue">₹12,499 <span class="text-[9px] font-normal text-slate-500">/ person</span></span>
+                                    </div>
+                                    <button onclick="triggerBooking('Darjeeling Scenic Retreat', '₹12,499', '5 Days / 4 Nights')" class="px-3.5 py-2 bg-travelblue hover:bg-sky-600 text-white text-[10px] font-bold rounded uppercase tracking-wider transition-all">
+                                        Book Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Package Card 2 -->
+                        <div class="glass-card bg-white rounded-xl overflow-hidden flex flex-col justify-between group transition-all duration-300">
+                            <div class="p-3 relative">
+                                <span class="absolute top-5 left-5 bg-amber-500 text-white text-[9px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider z-10">Tsomgo & Nathula Special</span>
+                                <div class="h-48 w-full bg-slate-100 rounded-lg overflow-hidden relative">
+                                    <img src="https://images.unsplash.com/photo-1589136777351-fdc9c9400c7e?auto=format&fit=crop&q=80&w=400" 
+                                         alt="Sikkim Valley" 
+                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/f1f5f9/0f172a?text=Sikkim';">
+                                    <div class="absolute bottom-2 left-2 bg-traveldark/90 px-2.5 py-1 rounded text-[10px] font-bold text-white flex items-center gap-1">
+                                        <i class="fa-solid fa-clock text-travelaccent text-[9px]"></i> 7 Days / 6 Nights
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="px-5 pb-5 pt-1 space-y-3">
+                                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Himalayan Escapes</div>
+                                <h3 class="font-bold text-sm text-slate-900 group-hover:text-travelblue transition-colors leading-snug line-clamp-1">Sikkim Silk Route & Lakes</h3>
+                                <p class="text-[11px] text-slate-500 leading-normal line-clamp-2">Explore the historical silk route trail, beautiful pristine water bodies of Lake Tsomgo, sacred Baba Mandir, and modern Gangtok vistas.</p>
+                                
+                                <div class="bg-slate-50 p-2.5 rounded text-[10px] space-y-1 text-slate-600 font-medium border border-slate-100">
+                                    <div class="flex justify-between"><span><i class="fa-solid fa-hotel text-travelblue mr-1"></i> Deluxe Hotels</span><span><i class="fa-solid fa-car text-travelblue mr-1"></i> SUV transfers</span></div>
+                                    <div class="flex justify-between"><span><i class="fa-solid fa-mug-hot text-travelblue mr-1"></i> MAP (Meals Pack)</span><span><i class="fa-solid fa-shield-halved text-travelblue mr-1"></i> Permits processed</span></div>
+                                </div>
+
+                                <div class="flex items-center justify-between border-t border-slate-100 pt-3.5 mt-1">
+                                    <div>
+                                        <span class="text-[10px] text-slate-400 block font-semibold uppercase">Twin Sharing</span>
+                                        <span class="text-sm font-extrabold text-travelblue">₹18,999 <span class="text-[9px] font-normal text-slate-500">/ person</span></span>
+                                    </div>
+                                    <button onclick="triggerBooking('Sikkim Silk Route & Lakes', '₹18,999', '7 Days / 6 Nights')" class="px-3.5 py-2 bg-travelblue hover:bg-sky-600 text-white text-[10px] font-bold rounded uppercase tracking-wider transition-all">
+                                        Book Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Package Card 3 -->
+                        <div class="glass-card bg-white rounded-xl overflow-hidden flex flex-col justify-between group transition-all duration-300">
+                            <div class="p-3 relative">
+                                <span class="absolute top-5 left-5 bg-emerald-600 text-white text-[9px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider z-10">Tropical Island Getaway</span>
+                                <div class="h-48 w-full bg-slate-100 rounded-lg overflow-hidden relative">
+                                    <img src="https://images.unsplash.com/photo-1589136777351-fdc9c9400c7e?auto=format&fit=crop&q=80&w=400" 
+                                         alt="Andaman Islands" 
+                                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                                         onerror="this.onerror=null; this.src='https://placehold.co/400x300/f1f5f9/0f172a?text=Andaman';">
+                                    <div class="absolute bottom-2 left-2 bg-traveldark/90 px-2.5 py-1 rounded text-[10px] font-bold text-white flex items-center gap-1">
+                                        <i class="fa-solid fa-clock text-travelaccent text-[9px]"></i> 6 Days / 5 Nights
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="px-5 pb-5 pt-1 space-y-3">
+                                <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Coastal Getaways</div>
+                                <h3 class="font-bold text-sm text-slate-900 group-hover:text-travelblue transition-colors leading-snug line-clamp-1">Andaman Island Paradise</h3>
+                                <p class="text-[11px] text-slate-500 leading-normal line-clamp-2">Sail to pristine white sands of Havelock Island, walk Radhanagar Beach, tour cellular jail heritage site, and try deep-sea snorkeling.</p>
+                                
+                                <div class="bg-slate-50 p-2.5 rounded text-[10px] space-y-1 text-slate-600 font-medium border border-slate-100">
+                                    <div class="flex justify-between"><span><i class="fa-solid fa-hotel text-travelblue mr-1"></i> Star Resorts</span><span><i class="fa-solid fa-ship text-travelblue mr-1"></i> Cruise Tickets</span></div>
+                                    <div class="flex justify-between"><span><i class="fa-solid fa-mug-hot text-travelblue mr-1"></i> Daily Buffets</span><span><i class="fa-solid fa-water text-travelblue mr-1"></i> Water activities</span></div>
+                                </div>
+
+                                <div class="flex items-center justify-between border-t border-slate-100 pt-3.5 mt-1">
+                                    <div>
+                                        <span class="text-[10px] text-slate-400 block font-semibold uppercase">Twin Sharing</span>
+                                        <span class="text-sm font-extrabold text-travelblue">₹29,999 <span class="text-[9px] font-normal text-slate-500">/ person</span></span>
+                                    </div>
+                                    <button onclick="triggerBooking('Andaman Island Paradise', '₹29,999', '6 Days / 5 Nights')" class="px-3.5 py-2 bg-travelblue hover:bg-sky-600 text-white text-[10px] font-bold rounded uppercase tracking-wider transition-all">
+                                        Book Now
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Custom Travel Budget Planner Widget -->
+            <section class="py-16 bg-white border-t border-b border-slate-200">
+                <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                    
+                    <div class="text-center space-y-3 mb-10">
+                        <span class="text-xs font-bold text-travelblue uppercase tracking-widest block"><i class="fa-solid fa-sliders"></i> Interactive Planning Tool</span>
+                        <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-serif">Plan & Estimate Your Vacation</h2>
+                        <p class="text-xs sm:text-sm text-slate-500 max-w-md mx-auto">Get an instant personalized cost estimate based on destinations, traveler density, and hotel standard categories.</p>
+                    </div>
+
+                    <!-- Custom Planner Grid Card -->
+                    <div class="bg-slate-50 rounded-xl border border-slate-200 p-6 sm:p-10 shadow-lg relative overflow-hidden">
+                        
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                            
+                            <!-- Inputs Form Columns -->
+                            <div class="space-y-4">
+                                <div class="space-y-1.5">
+                                    <label class="text-[10px] font-bold text-slate-700 uppercase tracking-wider block">1. Target Travel Zone</label>
+                                    <select id="plan-destination" onchange="calculateCustomEstimate()" class="w-full bg-white border border-slate-300 focus:border-travelblue rounded p-2.5 text-xs text-slate-900 outline-none transition-colors">
+                                        <option value="darjeeling">Darjeeling Retreat (Standard: ₹12,499)</option>
+                                        <option value="sikkim">Sikkim Valley & Lakes (Standard: ₹18,999)</option>
+                                        <option value="goa">Goa Beach Escapes (Standard: ₹15,499)</option>
+                                        <option value="kerala">Kerala Serene Houseboat (Standard: ₹21,500)</option>
+                                        <option value="andaman">Andaman Coastal Cruise (Standard: ₹29,999)</option>
+                                        <option value="thailand">International: Thailand (Standard: ₹38,999)</option>
+                                    </select>
+                                </div>
+
+                                <div class="space-y-1.5">
+                                    <label class="text-[10px] font-bold text-slate-700 uppercase tracking-wider block">2. Total Travelers Count</label>
+                                    <input type="number" id="plan-guests" min="1" max="20" value="2" onchange="calculateCustomEstimate()" onkeyup="calculateCustomEstimate()" class="w-full bg-white border border-slate-300 focus:border-travelblue rounded p-2.5 text-xs text-slate-900 outline-none transition-colors">
+                                </div>
+
+                                <div class="space-y-1.5">
+                                    <label class="text-[10px] font-bold text-slate-700 uppercase tracking-wider block">3. Hotel & Stay Standards</label>
+                                    <div class="grid grid-cols-3 gap-2">
+                                        <label class="border border-slate-300 rounded p-2 text-center block cursor-pointer transition-all hover:border-travelblue" id="label-h-budget">
+                                            <input type="radio" name="hotel-tier" value="budget" class="hidden" onchange="updateHotelTier('budget')">
+                                            <span class="text-[10px] font-bold uppercase block text-slate-500" id="text-h-budget">Budget</span>
+                                            <span class="text-[8px] text-slate-400 block mt-0.5">Eco/Homestay</span>
+                                        </label>
+                                        <label class="border-2 border-travelblue rounded p-2 text-center block cursor-pointer transition-all" id="label-h-standard">
+                                            <input type="radio" name="hotel-tier" value="standard" checked class="hidden" onchange="updateHotelTier('standard')">
+                                            <span class="text-[10px] font-bold uppercase block text-travelblue" id="text-h-standard">Standard</span>
+                                            <span class="text-[8px] text-slate-500 block mt-0.5">3-Star/Deluxe</span>
+                                        </label>
+                                        <label class="border border-slate-300 rounded p-2 text-center block cursor-pointer transition-all hover:border-travelblue" id="label-h-premium">
+                                            <input type="radio" name="hotel-tier" value="premium" class="hidden" onchange="updateHotelTier('premium')">
+                                            <span class="text-[10px] font-bold uppercase block text-slate-500" id="text-h-premium">Premium</span>
+                                            <span class="text-[8px] text-slate-400 block mt-0.5">4-Star/Resorts</span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Interactive Calculation Results Card -->
+                            <div class="bg-white border border-slate-200 rounded-lg p-5 flex flex-col justify-between space-y-5" id="planner-result-box">
+                                <div class="space-y-3.5">
+                                    <div class="border-b border-slate-100 pb-2.5">
+                                        <span class="text-[9px] bg-sky-100 text-travelblue font-bold px-2 py-0.5 rounded uppercase">Trip Valuation Breakdown</span>
+                                        <h4 class="font-serif text-sm text-slate-900 mt-1" id="val-dest-name">Darjeeling Retreat Estimate</h4>
+                                    </div>
+                                    <div class="space-y-2 text-xs">
+                                        <div class="flex justify-between text-slate-500">
+                                            <span>Base Rate (Per Person):</span>
+                                            <span class="font-bold text-slate-800" id="val-base-rate">₹12,499</span>
+                                        </div>
+                                        <div class="flex justify-between text-slate-500">
+                                            <span>Tier Surcharge/Discount:</span>
+                                            <span class="font-bold text-slate-800" id="val-tier-offset">₹0</span>
+                                        </div>
+                                        <div class="flex justify-between border-t border-slate-200 pt-2 text-slate-900 font-extrabold text-sm">
+                                            <span>Estimated Grand Total:</span>
+                                            <span class="text-travelblue" id="val-grand-total">₹24,998</span>
+                                        </div>
+                                    </div>
+                                    <div class="p-2.5 bg-sky-50 rounded text-[10px] text-slate-600 leading-relaxed font-medium">
+                                        <p class="flex items-center gap-1.5"><i class="fa-solid fa-circle-check text-travelblue"></i> Base private transfers, entry permissions and tax covered.</p>
+                                    </div>
+                                </div>
+                                <button onclick="triggerPlannerBooking()" class="w-full py-2.5 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold uppercase tracking-wider rounded transition-all flex items-center justify-center gap-1.5">
+                                    <i class="fa-brands fa-whatsapp text-sm"></i> Inquire Estimate on WhatsApp
+                                </button>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+            <!-- Tour Statistics Showcase -->
+            <section class="py-16 bg-traveldark text-white relative">
+                <div class="absolute inset-0 bg-[radial-gradient(#0284c7_1px,transparent_1px)] [background-size:24px_24px] opacity-15 pointer-events-none"></div>
+                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+                        <div>
+                            <span class="text-4xl sm:text-5xl font-extrabold text-travelblue font-serif block">15,000+</span>
+                            <span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold block mt-2">Satisfied Travelers</span>
+                        </div>
+                        <div>
+                            <span class="text-4xl sm:text-5xl font-extrabold text-travelblue font-serif block">120+</span>
+                            <span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold block mt-2">Tailored Tour Plans</span>
+                        </div>
+                        <div>
+                            <span class="text-4xl sm:text-5xl font-extrabold text-travelblue font-serif block">98%</span>
+                            <span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold block mt-2">Client Safety Record</span>
+                        </div>
+                        <div>
+                            <span class="text-4xl sm:text-5xl font-extrabold text-travelblue font-serif block">50+</span>
+                            <span class="text-[10px] uppercase tracking-widest text-slate-400 font-bold block mt-2">Corporate Group Ties</span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Customer Testimonials Section -->
+            <section class="py-16 bg-slate-50">
+                <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                    <span class="text-xs font-bold text-travelblue uppercase tracking-widest block mb-1">Authentic Client Experiences</span>
+                    <h2 class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-serif mb-12">Whispers of Satisfied Travelers</h2>
+
+                    <div class="glass-card bg-white rounded-2xl p-8 border border-slate-200 relative shadow-md">
+                        <div class="absolute -top-6 left-1/2 -translate-x-1/2 w-12 h-12 bg-travelblue rounded-full flex items-center justify-center text-white text-lg shadow-md">
+                            <i class="fa-solid fa-quote-left"></i>
+                        </div>
+                        
+                        <!-- Testimonial Item Node -->
+                        <div class="space-y-5 pt-3">
+                            <p id="local-review-quote" class="text-slate-700 text-sm sm:text-base italic leading-relaxed">
+                                "Our Sikkim family tour was organized flawlessly by Explore Bengal Tours. Right from the Gangtok airport pickup to our premium wooden resort stay in Lachung, Sajjad managed all permissions securely. Highly recommended!"
+                            </p>
+                            <div class="flex justify-center text-travelaccent text-xs gap-1">
+                                <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
+                            </div>
+                            <div class="border-t border-slate-100 pt-4 max-w-[250px] mx-auto">
+                                <h4 id="local-review-name" class="font-extrabold text-xs sm:text-sm text-slate-900">Dr. Anindya Sengupta</h4>
+                                <p id="local-review-sub" class="text-[9px] text-slate-400 uppercase tracking-widest mt-0.5">Kolkata Resident</p>
+                            </div>
+                        </div>
+
+                        <!-- Testimonial Slider Controls -->
+                        <div class="flex justify-between items-center absolute w-full left-0 px-4 sm:px-6 top-1/2 -translate-y-1/2 pointer-events-none">
+                            <button onclick="slideReviews(-1)" class="w-10 h-10 rounded-full bg-white border border-slate-200 hover:border-travelblue text-slate-600 hover:text-travelblue flex items-center justify-center shadow transition-all pointer-events-auto"><i class="fa-solid fa-chevron-left text-xs"></i></button>
+                            <button onclick="slideReviews(1)" class="w-10 h-10 rounded-full bg-white border border-slate-200 hover:border-travelblue text-slate-600 hover:text-travelblue flex items-center justify-center shadow transition-all pointer-events-auto"><i class="fa-solid fa-chevron-right text-xs"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ============================================= -->
+        <!-- SECTION 2: TOUR PACKAGES                      -->
+        <!-- ============================================= -->
+        <div id="page-packages" class="page-transition page-hidden">
+            
+            <!-- Header section -->
+            <section class="py-12 bg-white border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+                    <span class="text-xs font-bold text-travelblue uppercase tracking-widest block">Explore Hand-Crafted Holidays</span>
+                    <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-serif">Curated Tour Packages</h1>
+                    <p class="text-xs sm:text-sm text-slate-500 max-w-lg mx-auto font-medium">All tours include star hotels, transfers in private sanitized vehicles, sightseeing tickets, and dedicated regional guides.</p>
+                </div>
+            </section>
+
+            <!-- Packages Filtering Tabs Menu -->
+            <section class="py-5 bg-slate-100 border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 flex flex-wrap gap-2 justify-center">
+                    <button onclick="filterPackages('all')" class="pkg-cat-btn px-4 py-2 rounded-full text-xs font-bold uppercase transition-all bg-travelblue text-white shadow-sm" id="p-btn-all">All Tours</button>
+                    <button onclick="filterPackages('himalayan')" class="pkg-cat-btn px-4 py-2 rounded-full text-xs font-semibold uppercase transition-all bg-white border border-slate-300 text-slate-600 hover:text-travelblue hover:border-travelblue" id="p-btn-himalayan">Darjeeling & Sikkim</button>
+                    <button onclick="filterPackages('coastal')" class="pkg-cat-btn px-4 py-2 rounded-full text-xs font-semibold uppercase transition-all bg-white border border-slate-300 text-slate-600 hover:text-travelblue hover:border-travelblue" id="p-btn-coastal">Goa & Kerala</button>
+                    <button onclick="filterPackages('andaman')" class="pkg-cat-btn px-4 py-2 rounded-full text-xs font-semibold uppercase transition-all bg-white border border-slate-300 text-slate-600 hover:text-travelblue hover:border-travelblue" id="p-btn-andaman">Andaman Specials</button>
+                    <button onclick="filterPackages('international')" class="pkg-cat-btn px-4 py-2 rounded-full text-xs font-semibold uppercase transition-all bg-white border border-slate-300 text-slate-600 hover:text-travelblue hover:border-travelblue" id="p-btn-international">International Tours</button>
+                </div>
+            </section>
+
+            <!-- Packages Dynamic Cards Collection Grid -->
+            <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8" id="packages-main-grid">
+                    
+                    <!-- Card item 1 -->
+                    <div class="package-card-node glass-card bg-white rounded-xl overflow-hidden flex flex-col justify-between group transition-all duration-300" data-zone="himalayan">
+                        <div class="p-3 relative">
+                            <span class="absolute top-5 left-5 bg-sky-600 text-white text-[9px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider z-10">Best Seller</span>
+                            <div class="h-48 w-full bg-slate-100 rounded-lg overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=400" alt="Darjeeling" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute bottom-2 left-2 bg-traveldark/90 px-2.5 py-1 rounded text-[10px] font-bold text-white flex items-center gap-1">
+                                    <i class="fa-solid fa-clock text-travelaccent"></i> 5 Days / 4 Nights
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5 pt-1 space-y-3">
+                            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Himalayan Escapes</div>
+                            <h3 class="font-bold text-sm text-slate-900 group-hover:text-travelblue transition-colors line-clamp-1">Darjeeling Scenic Retreat</h3>
+                            <p class="text-[11px] text-slate-500 leading-normal line-clamp-2">Experience beautiful Tiger Hill sunrise over Mount Kanchenjunga, Mirik Lake boating adventures, and premium organic Himalayan tea valleys.</p>
+                            
+                            <div class="bg-slate-50 p-2 rounded text-[10px] space-y-1 text-slate-600 border border-slate-100">
+                                <div class="flex justify-between"><span><i class="fa-solid fa-hotel text-travelblue mr-1"></i> Star Hotels</span><span><i class="fa-solid fa-car text-travelblue mr-1"></i> Private Cab</span></div>
+                                <div class="flex justify-between"><span><i class="fa-solid fa-mug-hot text-travelblue mr-1"></i> Daily Breakfast</span><span><i class="fa-solid fa-ticket text-travelblue mr-1"></i> Sightseeing passes</span></div>
+                            </div>
+
+                            <div class="flex items-center justify-between border-t border-slate-100 pt-3 mt-1">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 block font-semibold uppercase">Twin Sharing</span>
+                                    <span class="text-sm font-extrabold text-travelblue">₹12,499</span>
+                                </div>
+                                <button onclick="triggerBooking('Darjeeling Scenic Retreat', '₹12,499', '5 Days / 4 Nights')" class="px-3 py-1.5 bg-travelblue hover:bg-sky-600 text-white text-[10px] font-bold rounded uppercase tracking-wide">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card item 2 -->
+                    <div class="package-card-node glass-card bg-white rounded-xl overflow-hidden flex flex-col justify-between group transition-all duration-300" data-zone="himalayan">
+                        <div class="p-3 relative">
+                            <span class="absolute top-5 left-5 bg-sky-600 text-white text-[9px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider z-10">North Sikkim Special</span>
+                            <div class="h-48 w-full bg-slate-100 rounded-lg overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1589136777351-fdc9c9400c7e?auto=format&fit=crop&q=80&w=400" alt="Sikkim Valley" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute bottom-2 left-2 bg-traveldark/90 px-2.5 py-1 rounded text-[10px] font-bold text-white flex items-center gap-1">
+                                    <i class="fa-solid fa-clock text-travelaccent"></i> 7 Days / 6 Nights
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5 pt-1 space-y-3">
+                            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Himalayan Escapes</div>
+                            <h3 class="font-bold text-sm text-slate-900 group-hover:text-travelblue transition-colors line-clamp-1">Sikkim Silk Route & Lakes</h3>
+                            <p class="text-[11px] text-slate-500 leading-normal line-clamp-2">Journey into the high passes of Gangtok, pristine water bodies of Lake Tsomgo, historic silk route trails, and alpine meadows.</p>
+                            
+                            <div class="bg-slate-50 p-2 rounded text-[10px] space-y-1 text-slate-600 border border-slate-100">
+                                <div class="flex justify-between"><span><i class="fa-solid fa-hotel text-travelblue mr-1"></i> Star Hotels</span><span><i class="fa-solid fa-car text-travelblue mr-1"></i> Private Cab</span></div>
+                                <div class="flex justify-between"><span><i class="fa-solid fa-mug-hot text-travelblue mr-1"></i> Breakfast & Lunch</span><span><i class="fa-solid fa-ticket text-travelblue mr-1"></i> Permit charges</span></div>
+                            </div>
+
+                            <div class="flex items-center justify-between border-t border-slate-100 pt-3 mt-1">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 block font-semibold uppercase">Twin Sharing</span>
+                                    <span class="text-sm font-extrabold text-travelblue">₹18,999</span>
+                                </div>
+                                <button onclick="triggerBooking('Sikkim Silk Route & Lakes', '₹18,999', '7 Days / 6 Nights')" class="px-3 py-1.5 bg-travelblue hover:bg-sky-600 text-white text-[10px] font-bold rounded uppercase tracking-wide">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card item 3 -->
+                    <div class="package-card-node glass-card bg-white rounded-xl overflow-hidden flex flex-col justify-between group transition-all duration-300" data-zone="coastal">
+                        <div class="p-3 relative">
+                            <span class="absolute top-5 left-5 bg-sky-600 text-white text-[9px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider z-10">Beaches & Heritage</span>
+                            <div class="h-48 w-full bg-slate-100 rounded-lg overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=400" alt="Goa Beaches" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute bottom-2 left-2 bg-traveldark/90 px-2.5 py-1 rounded text-[10px] font-bold text-white flex items-center gap-1">
+                                    <i class="fa-solid fa-clock text-travelaccent"></i> 4 Days / 3 Nights
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5 pt-1 space-y-3">
+                            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Coastal Getaways</div>
+                            <h3 class="font-bold text-sm text-slate-900 group-hover:text-travelblue transition-colors line-clamp-1">Goa Coastal & Heritage Tour</h3>
+                            <p class="text-[11px] text-slate-500 leading-normal line-clamp-2">Indulge in scenic North Goa sand stretches, historical Portuguese Cathedrals in Old Goa, and luxury cruise activities.</p>
+                            
+                            <div class="bg-slate-50 p-2 rounded text-[10px] space-y-1 text-slate-600 border border-slate-100">
+                                <div class="flex justify-between"><span><i class="fa-solid fa-hotel text-travelblue mr-1"></i> Star Hotels</span><span><i class="fa-solid fa-car text-travelblue mr-1"></i> Airport cab</span></div>
+                                <div class="flex justify-between"><span><i class="fa-solid fa-mug-hot text-travelblue mr-1"></i> Daily Buffets</span><span><i class="fa-solid fa-ship text-travelblue mr-1"></i> Cruise passes</span></div>
+                            </div>
+
+                            <div class="flex items-center justify-between border-t border-slate-100 pt-3 mt-1">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 block font-semibold uppercase">Twin Sharing</span>
+                                    <span class="text-sm font-extrabold text-travelblue">₹15,499</span>
+                                </div>
+                                <button onclick="triggerBooking('Goa Coastal & Heritage Tour', '₹15,499', '4 Days / 3 Nights')" class="px-3 py-1.5 bg-travelblue hover:bg-sky-600 text-white text-[10px] font-bold rounded uppercase tracking-wide">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card item 4 -->
+                    <div class="package-card-node glass-card bg-white rounded-xl overflow-hidden flex flex-col justify-between group transition-all duration-300" data-zone="coastal">
+                        <div class="p-3 relative">
+                            <span class="absolute top-5 left-5 bg-sky-600 text-white text-[9px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider z-10">Premium Houseboat</span>
+                            <div class="h-48 w-full bg-slate-100 rounded-lg overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&q=80&w=400" alt="Kerala Backwaters" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute bottom-2 left-2 bg-traveldark/90 px-2.5 py-1 rounded text-[10px] font-bold text-white flex items-center gap-1">
+                                    <i class="fa-solid fa-clock text-travelaccent"></i> 6 Days / 5 Nights
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5 pt-1 space-y-3">
+                            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Coastal Getaways</div>
+                            <h3 class="font-bold text-sm text-slate-900 group-hover:text-travelblue transition-colors line-clamp-1">Kerala Serene Houseboat Stay</h3>
+                            <p class="text-[11px] text-slate-500 leading-normal line-clamp-2">Float smoothly along peaceful backwaters in traditional houseboats, walk Munnar organic tea gardens, and view scenic waterfalls.</p>
+                            
+                            <div class="bg-slate-50 p-2 rounded text-[10px] space-y-1 text-slate-600 border border-slate-100">
+                                <div class="flex justify-between"><span><i class="fa-solid fa-hotel text-travelblue mr-1"></i> Resort & Boat</span><span><i class="fa-solid fa-car text-travelblue mr-1"></i> Dedicated Cab</span></div>
+                                <div class="flex justify-between"><span><i class="fa-solid fa-mug-hot text-travelblue mr-1"></i> Full Meals Pack</span><span><i class="fa-solid fa-water text-travelblue mr-1"></i> Spice farm tours</span></div>
+                            </div>
+
+                            <div class="flex items-center justify-between border-t border-slate-100 pt-3 mt-1">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 block font-semibold uppercase">Twin Sharing</span>
+                                    <span class="text-sm font-extrabold text-travelblue">₹21,500</span>
+                                </div>
+                                <button onclick="triggerBooking('Kerala Serene Houseboat Stay', '₹21,500', '6 Days / 5 Nights')" class="px-3 py-1.5 bg-travelblue hover:bg-sky-600 text-white text-[10px] font-bold rounded uppercase tracking-wide">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card item 5 -->
+                    <div class="package-card-node glass-card bg-white rounded-xl overflow-hidden flex flex-col justify-between group transition-all duration-300" data-zone="andaman">
+                        <div class="p-3 relative">
+                            <span class="absolute top-5 left-5 bg-sky-600 text-white text-[9px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider z-10">Cellular Jail & Coral Islands</span>
+                            <div class="h-48 w-full bg-slate-100 rounded-lg overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1589136777351-fdc9c9400c7e?auto=format&fit=crop&q=80&w=400" alt="Andaman Havelock" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute bottom-2 left-2 bg-traveldark/90 px-2.5 py-1 rounded text-[10px] font-bold text-white flex items-center gap-1">
+                                    <i class="fa-solid fa-clock text-travelaccent"></i> 6 Days / 5 Nights
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5 pt-1 space-y-3">
+                            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">Andaman Specials</div>
+                            <h3 class="font-bold text-sm text-slate-900 group-hover:text-travelblue transition-colors line-clamp-1">Andaman Coastal Cruise Experience</h3>
+                            <p class="text-[11px] text-slate-500 leading-normal line-clamp-2">Cruise directly to Havelock Island, walk scenic Radhanagar Beach, and snorkel under the guidance of PADI certified divers.</p>
+                            
+                            <div class="bg-slate-50 p-2 rounded text-[10px] space-y-1 text-slate-600 border border-slate-100">
+                                <div class="flex justify-between"><span><i class="fa-solid fa-hotel text-travelblue mr-1"></i> Luxury Resorts</span><span><i class="fa-solid fa-ship text-travelblue mr-1"></i> Cruise passes</span></div>
+                                <div class="flex justify-between"><span><i class="fa-solid fa-mug-hot text-travelblue mr-1"></i> Daily Buffets</span><span><i class="fa-solid fa-life-ring text-travelblue mr-1"></i> Water activities</span></div>
+                            </div>
+
+                            <div class="flex items-center justify-between border-t border-slate-100 pt-3 mt-1">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 block font-semibold uppercase">Twin Sharing</span>
+                                    <span class="text-sm font-extrabold text-travelblue">₹29,999</span>
+                                </div>
+                                <button onclick="triggerBooking('Andaman Coastal Cruise Experience', '₹29,999', '6 Days / 5 Nights')" class="px-3 py-1.5 bg-travelblue hover:bg-sky-600 text-white text-[10px] font-bold rounded uppercase tracking-wide">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card item 6 -->
+                    <div class="package-card-node glass-card bg-white rounded-xl overflow-hidden flex flex-col justify-between group transition-all duration-300" data-zone="international">
+                        <div class="p-3 relative">
+                            <span class="absolute top-5 left-5 bg-amber-500 text-white text-[9px] font-bold px-2.5 py-0.5 rounded uppercase tracking-wider z-10">Global Explorer</span>
+                            <div class="h-48 w-full bg-slate-100 rounded-lg overflow-hidden relative">
+                                <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&q=80&w=400" alt="Bangkok Temples" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                                <div class="absolute bottom-2 left-2 bg-traveldark/90 px-2.5 py-1 rounded text-[10px] font-bold text-white flex items-center gap-1">
+                                    <i class="fa-solid fa-clock text-travelaccent"></i> 5 Days / 4 Nights
+                                </div>
+                            </div>
+                        </div>
+                        <div class="px-5 pb-5 pt-1 space-y-3">
+                            <div class="text-[10px] font-bold text-slate-400 uppercase tracking-widest">International Packages</div>
+                            <h3 class="font-bold text-sm text-slate-900 group-hover:text-travelblue transition-colors line-clamp-1">Thailand & Bangkok Explorer</h3>
+                            <p class="text-[11px] text-slate-500 leading-normal line-clamp-2">Explore the historical temples of Bangkok, try vibrant street food walks, and cruise through gorgeous Coral Islands.</p>
+                            
+                            <div class="bg-slate-50 p-2 rounded text-[10px] space-y-1 text-slate-600 border border-slate-100">
+                                <div class="flex justify-between"><span><i class="fa-solid fa-hotel text-travelblue mr-1"></i> Premium Hotels</span><span><i class="fa-solid fa-car text-travelblue mr-1"></i> Private Cab</span></div>
+                                <div class="flex justify-between"><span><i class="fa-solid fa-mug-hot text-travelblue mr-1"></i> Daily Buffets</span><span><i class="fa-solid fa-language text-travelblue mr-1"></i> English Guide</span></div>
+                            </div>
+
+                            <div class="flex items-center justify-between border-t border-slate-100 pt-3 mt-1">
+                                <div>
+                                    <span class="text-[10px] text-slate-400 block font-semibold uppercase">Twin Sharing</span>
+                                    <span class="text-sm font-extrabold text-travelblue">₹38,999</span>
+                                </div>
+                                <button onclick="triggerBooking('Thailand & Bangkok Explorer', '₹38,999', '5 Days / 4 Nights')" class="px-3 py-1.5 bg-travelblue hover:bg-sky-600 text-white text-[10px] font-bold rounded uppercase tracking-wide">Book Now</button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+        </div>
+
+        <!-- ============================================= -->
+        <!-- SECTION 3: ABOUT US (OUR STORY)               -->
+        <!-- ============================================= -->
+        <div id="page-about" class="page-transition page-hidden">
+            
+            <!-- Header Section -->
+            <section class="py-12 bg-white border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+                    <span class="text-xs font-bold text-travelblue uppercase tracking-widest block">Operational Since 2012</span>
+                    <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-serif">The Journey of Explore Bengal</h1>
+                    <p class="text-xs sm:text-sm text-slate-500 max-w-lg mx-auto font-medium">Built on transparency, traveler comfort, and deeply satisfying holiday management experiences.</p>
+                </div>
+            </section>
+
+            <!-- Company History Core -->
+            <section class="py-16 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                    <div class="space-y-5">
+                        <h2 class="text-2xl font-extrabold text-slate-900 font-serif">Crafting Personalized Vacations with Honesty</h2>
+                        <p class="text-slate-600 text-sm leading-relaxed font-light">
+                            Explore Bengal Tours started in 2012 with a single mission: to design authentic, hassle-free holiday itineraries for travelers seeking comfort and transparency. Rather than offering rigid templates, we focus on custom arrangements that cater to specific preferences.
+                        </p>
+                        <p class="text-slate-600 text-sm leading-relaxed font-light">
+                            Over the last decade, we have grown into a Govt. Registered tour operating firm, serving more than 15,000 families across pristine Himalayan altitudes, sun-kissed Goan coastlines, backwater houseboats in Kerala, and beautiful coral islands of Andaman.
+                        </p>
+                        <p class="text-slate-600 text-sm leading-relaxed font-light">
+                            Our core strengths: <strong>no dynamic hidden fees, verified premium hotels with scenic views, customized dining plans, and verified regional guides.</strong>
+                        </p>
+                    </div>
+                    <div>
+                        <img src="https://images.unsplash.com/photo-1506929562872-bb421503ef21?auto=format&fit=crop&q=80&w=600" 
+                             alt="Travel Explorer Boarding" 
+                             class="rounded-xl border border-slate-200 w-full object-cover shadow-md h-[340px]"
+                             onerror="this.onerror=null; this.src='https://placehold.co/600x400/1e293b/ffffff?text=Scenic+Landscape';">
+                    </div>
+                </div>
+
+                <!-- Team Cards Block -->
+                <div class="space-y-8">
+                    <h3 class="text-xl font-bold text-slate-900 font-serif text-center">Meet Our Travel Experts</h3>
+                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+                        
+                        <!-- Member 1 -->
+                        <div class="bg-white rounded-xl border border-slate-200 p-6 text-center space-y-3 shadow-sm">
+                            <div class="w-20 h-20 bg-sky-100 text-travelblue rounded-full flex items-center justify-center mx-auto text-2xl font-extrabold font-serif">SK</div>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900">Sanjeev Karmakar</h4>
+                                <p class="text-[9px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">Founder & Operations Head</p>
+                            </div>
+                            <p class="text-[11px] text-slate-500 leading-normal font-light">A passionate traveler with 15+ years of route planning experience across Sikkim and Darjeeling.</p>
+                        </div>
+
+                        <!-- Member 2 -->
+                        <div class="bg-white rounded-xl border border-slate-200 p-6 text-center space-y-3 shadow-sm">
+                            <div class="w-20 h-20 bg-sky-100 text-travelblue rounded-full flex items-center justify-center mx-auto text-2xl font-extrabold font-serif">MB</div>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900">Mousumi Banerjee</h4>
+                                <p class="text-[9px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">Corporate Tour Specialist</p>
+                            </div>
+                            <p class="text-[11px] text-slate-500 leading-normal font-light">Expert in managing bulk schedules, conferences, corporate family meets, and flight coordination.</p>
+                        </div>
+
+                        <!-- Member 3 -->
+                        <div class="bg-white rounded-xl border border-slate-200 p-6 text-center space-y-3 shadow-sm">
+                            <div class="w-20 h-20 bg-sky-100 text-travelblue rounded-full flex items-center justify-center mx-auto text-2xl font-extrabold font-serif">AA</div>
+                            <div>
+                                <h4 class="font-bold text-sm text-slate-900">Asif Ahmed</h4>
+                                <p class="text-[9px] text-slate-400 uppercase tracking-widest font-bold mt-0.5">Customer Support Lead</p>
+                            </div>
+                            <p class="text-[11px] text-slate-500 leading-normal font-light">Coordinates permit verifications, hotel custom requests, and manages live helpline desks during travels.</p>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ============================================= -->
+        <!-- SECTION 4: HELP & FAQS                        -->
+        <!-- ============================================= -->
+        <div id="page-faqs" class="page-transition page-hidden">
+            
+            <!-- Header Section -->
+            <section class="py-12 bg-white border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+                    <span class="text-xs font-bold text-travelblue uppercase tracking-widest block">Clear Answers Upfront</span>
+                    <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-serif">Frequently Asked Questions</h1>
+                    <p class="text-xs sm:text-sm text-slate-500 max-w-lg mx-auto font-medium">Have queries regarding booking terms, payment splits, permits, or travel updates? Find accurate answers instantly.</p>
+                </div>
+            </section>
+
+            <!-- Accordion Grid -->
+            <section class="py-12 max-w-3xl mx-auto px-4 sm:px-6">
+                <div class="space-y-4">
+                    
+                    <!-- FAQ Item 1 -->
+                    <div class="bg-white border border-slate-200 rounded-lg overflow-hidden transition-all shadow-sm">
+                        <button onclick="toggleFAQ(1)" class="w-full p-5 text-left font-bold text-xs sm:text-sm text-slate-900 flex justify-between items-center bg-slate-50/50 hover:bg-slate-50 transition-all outline-none">
+                            <span>How do I secure a booking with Explore Bengal?</span>
+                            <span class="text-travelblue" id="faq-icon-1"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="p-5 border-t border-slate-100 hidden text-[11px] sm:text-xs text-slate-600 leading-relaxed font-light space-y-2 bg-white" id="faq-content-1">
+                            <p>You can secure your customized trip booking in three easy steps:</p>
+                            <ul class="list-disc pl-4 space-y-1">
+                                <li>Finalize your custom itinerary details with our support executive.</li>
+                                <li>Pay a standard 30% advance deposit into our official bank account.</li>
+                                <li>Receive a verified booking receipt, hotel confirmations, and permit processing status within 24 hours.</li>
+                            </ul>
+                            <p class="font-medium text-slate-900 mt-2">Note: The remaining balance is payable on day 1 of the trip during hotel/cab onboarding.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="bg-white border border-slate-200 rounded-lg overflow-hidden transition-all shadow-sm">
+                        <button onclick="toggleFAQ(2)" class="w-full p-5 text-left font-bold text-xs sm:text-sm text-slate-900 flex justify-between items-center bg-slate-50/50 hover:bg-slate-50 transition-all outline-none">
+                            <span>What is your cancellation and refund policy?</span>
+                            <span class="text-travelblue" id="faq-icon-2"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="p-5 border-t border-slate-100 hidden text-[11px] sm:text-xs text-slate-600 leading-relaxed font-light space-y-1.5 bg-white" id="faq-content-2">
+                            <p>We understand that schedules change due to emergency situations. Our cancellation slabs are highly transparent:</p>
+                            <p>• <strong>30+ days before travel:</strong> Full refund of advance deposit minus a ₹1,000 standard processing fee.</p>
+                            <p>• <strong>15 to 30 days before travel:</strong> 50% refund of advance deposit.</p>
+                            <p>• <strong>Less than 15 days:</strong> Non-refundable due to early commitments paid to block premium hotel rooms and transit vehicles.</p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="bg-white border border-slate-200 rounded-lg overflow-hidden transition-all shadow-sm">
+                        <button onclick="toggleFAQ(3)" class="w-full p-5 text-left font-bold text-xs sm:text-sm text-slate-900 flex justify-between items-center bg-slate-50/50 hover:bg-slate-50 transition-all outline-none">
+                            <span>Do you arrange passes for high altitudes like Nathula Pass or Zero Point?</span>
+                            <span class="text-travelblue" id="faq-icon-3"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="p-5 border-t border-slate-100 hidden text-[11px] sm:text-xs text-slate-600 leading-relaxed font-light bg-white" id="faq-content-3">
+                            Yes, absolutely. Our operations desk processes special military area permissions for tourist spots such as Nathula Pass, Tsomgo Lake, and Baba Mandir in Sikkim, as well as Zero Point in Lachung. Guests only need to provide scan copies of their valid Photo ID card (Voter / Passport) and passport-sized photos during final itinerary planning.
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="bg-white border border-slate-200 rounded-lg overflow-hidden transition-all shadow-sm">
+                        <button onclick="toggleFAQ(4)" class="w-full p-5 text-left font-bold text-xs sm:text-sm text-slate-900 flex justify-between items-center bg-slate-50/50 hover:bg-slate-50 transition-all outline-none">
+                            <span>Can we request customized food menus (pure vegetarian, Jain)?</span>
+                            <span class="text-travelblue" id="faq-icon-4"><i class="fa-solid fa-plus"></i></span>
+                        </button>
+                        <div class="p-5 border-t border-slate-100 hidden text-[11px] sm:text-xs text-slate-600 leading-relaxed font-light bg-white" id="faq-content-4">
+                            Yes. We coordinate custom food preferences directly with all onboarded hotels. Whether you require pure vegetarian meals, specific Jain recipes (cooked without onion/garlic), or halal preparations, let our sales assistant know in advance so we can book compatible resorts for your stay.
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+
+        <!-- ============================================= -->
+        <!-- SECTION 5: CONTACT & OFFICE DIRECTIONS        -->
+        <!-- ============================================= -->
+        <div id="page-contact" class="page-transition page-hidden">
+            
+            <!-- Header Section -->
+            <section class="py-12 bg-white border-b border-slate-200">
+                <div class="max-w-7xl mx-auto px-4 text-center space-y-3">
+                    <span class="text-xs font-bold text-travelblue uppercase tracking-widest block">Connect With Travel Desk</span>
+                    <h1 class="text-2xl sm:text-3xl font-extrabold text-slate-900 font-serif">Coordinates & Consultation</h1>
+                    <p class="text-xs sm:text-sm text-slate-500 max-w-lg mx-auto font-medium">Walk straight into our regional sales office for a direct customized cup of tea and complete vacation discussion.</p>
+                </div>
+            </section>
+
+            <!-- Coordinate Grid -->
+            <section class="py-12 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    
+                    <!-- Left Column: Location details & Operating Matrix -->
+                    <div class="lg:col-span-5 space-y-6">
+                        
+                        <div class="bg-white p-6 rounded-xl border border-slate-200 space-y-5 shadow-sm">
+                            <h3 class="font-serif font-bold text-sm text-slate-900 uppercase tracking-wide">Salt Lake Office (Kolkata)</h3>
+                            
+                            <div class="space-y-4 text-xs text-slate-600">
+                                <div class="flex gap-3.5 items-start">
+                                    <span class="text-travelblue text-base mt-0.5"><i class="fa-solid fa-location-dot"></i></span>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900">Physical Address</h4>
+                                        <p class="mt-0.5 font-light leading-relaxed">Suite 402, Level 4, Merlin Infinite Building, Block DN, Sector V, Salt Lake, Kolkata, West Bengal 700091</p>
+                                        <p class="text-[10px] text-slate-400 italic mt-0.5">(Opposite RS Software, near Sector V Metro Station)</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex gap-3.5 items-start">
+                                    <span class="text-travelblue text-base mt-0.5"><i class="fa-solid fa-phone-volume"></i></span>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900">Support Hotline</h4>
+                                        <a href="tel:+919830012345" class="text-slate-500 hover:text-travelblue font-semibold transition-colors">+91 98300 12345</a>
+                                        <p class="text-[10px] text-slate-400 mt-0.5">(Available 10 AM to 8 PM daily)</p>
+                                    </div>
+                                </div>
+
+                                <div class="flex gap-3.5 items-start">
+                                    <span class="text-travelblue text-base mt-0.5"><i class="fa-solid fa-envelope"></i></span>
+                                    <div>
+                                        <h4 class="font-bold text-slate-900">Official Email</h4>
+                                        <span class="text-slate-500">bookings@explorebengaltours.com</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Operations Hours -->
+                        <div class="bg-white p-6 rounded-xl border border-slate-200 space-y-4 shadow-sm">
+                            <h3 class="font-serif font-bold text-xs uppercase text-slate-900 tracking-wide flex justify-between">
+                                <span>Weekly Office Hours</span>
+                                <span class="bg-amber-50 text-[10px] text-amber-700 font-bold px-2 py-0.5 rounded">Sunday Open</span>
+                            </h3>
+
+                            <div class="space-y-2 text-xs">
+                                <div class="flex justify-between border-b border-slate-100 pb-1.5">
+                                    <span class="text-slate-500 font-light">Monday to Saturday</span>
+                                    <span class="font-semibold text-slate-800">10:00 AM - 8:00 PM</span>
+                                </div>
+                                <div class="flex justify-between">
+                                    <span class="text-slate-500 font-light">Sunday</span>
+                                    <span class="font-semibold text-slate-800">11:00 AM - 4:00 PM</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <!-- Right Column: Consultation Form & Vector Road Map -->
+                    <div class="lg:col-span-7 space-y-6">
+                        
+                        <!-- Consultation Form -->
+                        <div class="bg-white p-6 sm:p-8 rounded-xl border border-slate-200 shadow-sm">
+                            <h3 class="text-lg font-serif font-bold text-slate-900 mb-5">Drop An Inquiry For Custon Planning</h3>
+                            
+                            <form id="travel-query-form" onsubmit="submitQuery(event)" class="space-y-4">
+                                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                    <div class="space-y-1.5">
+                                        <label class="text-[10px] font-bold text-slate-700 uppercase tracking-wider block">Your Name</label>
+                                        <input type="text" id="tc-name" required placeholder="Subhasish Roy" class="w-full bg-slate-50 border border-slate-300 focus:border-travelblue rounded px-4 py-2 text-xs text-slate-900 outline-none transition-colors">
+                                    </div>
+                                    <div class="space-y-1.5">
+                                        <label class="text-[10px] font-bold text-slate-700 uppercase tracking-wider block">Your Phone Number</label>
+                                        <input type="tel" id="tc-phone" required placeholder="+91 9XXXX XXXXX" class="w-full bg-slate-50 border border-slate-300 focus:border-travelblue rounded px-4 py-2 text-xs text-slate-900 outline-none transition-colors">
+                                    </div>
+                                </div>
+
+                                <div class="space-y-1.5">
+                                    <label class="text-[10px] font-bold text-slate-700 uppercase tracking-wider block">Preferred Holiday Destination</label>
+                                    <select id="tc-dest" class="w-full bg-slate-50 border border-slate-300 focus:border-travelblue rounded px-4 py-2.5 text-xs text-slate-900 outline-none transition-colors">
+                                        <option value="darjeeling">Darjeeling Escapes</option>
+                                        <option value="sikkim">Sikkim Valley & Lakes</option>
+                                        <option value="goa">Goa Coastal & Heritage</option>
+                                        <option value="kerala">Kerala Serene Backwaters</option>
+                                        <option value="andaman">Andaman Coastal Cruise</option>
+                                        <option value="international">International Destination</option>
+                                    </select>
+                                </div>
+
+                                <div class="space-y-1.5">
+                                    <label class="text-[10px] font-bold text-slate-700 uppercase tracking-wider block">Describe Your Travel Plans</label>
+                                    <textarea id="tc-msg" rows="4" required placeholder="Describe number of travelers, tentative travel date and hotel category preferences..." class="w-full bg-slate-50 border border-slate-300 focus:border-travelblue rounded p-4 text-xs text-slate-900 outline-none transition-colors resize-none"></textarea>
+                                </div>
+
+                                <button type="submit" class="w-full py-3 rounded bg-travelblue hover:bg-sky-600 text-white font-bold text-xs uppercase tracking-wider transition-all shadow flex items-center justify-center gap-2">
+                                    Submit Query <i class="fa-solid fa-paper-plane text-xs"></i>
+                                </button>
+                            </form>
+                        </div>
+
+                        <!-- STEAMING_CHUNK: Drawing Map Blueprint -->
+                        <!-- Vector SVG Local Road Layout Map Pin -->
+                        <div class="bg-white rounded-xl overflow-hidden border border-slate-200 h-64 relative shadow-sm flex flex-col justify-end p-5">
+                            <div class="absolute inset-0 bg-slate-100 flex items-center justify-center overflow-hidden">
+                                <div class="absolute w-[180%] h-[180%] bg-[radial-gradient(#cbd5e1_1px,transparent_1px)] [background-size:16px_16px] opacity-25"></div>
+                                
+                                <!-- Realistic Simulated Sector V Street Vectors -->
+                                <svg class="absolute inset-0 w-full h-full text-slate-300/60" xmlns="http://www.w3.org/2000/svg">
+                                    <!-- Main Road Layout -->
+                                    <line x1="0" y1="120" x2="600" y2="120" stroke="#cbd5e1" stroke-width="48" />
+                                    <line x1="300" y1="0" x2="300" y2="300" stroke="#cbd5e1" stroke-width="48" />
+                                    <!-- Central Roundabout Circle (Salt Lake sector V style circle) -->
+                                    <circle cx="300" cy="120" r="45" fill="#f8fafc" stroke="#cbd5e1" stroke-width="8" />
+                                    <!-- Road lines -->
+                                    <line x1="0" y1="120" x2="600" y2="120" stroke="#ffffff" stroke-width="2" stroke-dasharray="8, 8" />
+                                    <line x1="300" y1="0" x2="300" y2="300" stroke="#ffffff" stroke-width="2" stroke-dasharray="8, 8" />
+                                </svg>
+
+                                <!-- Central Pin -->
+                                <div class="relative z-10 flex flex-col items-center">
+                                    <div class="w-11 h-11 bg-travelblue text-white rounded-full flex items-center justify-center shadow-lg animate-bounce mb-2">
+                                        <i class="fa-solid fa-map-location-dot text-base"></i>
+                                    </div>
+                                    <span class="text-[10px] font-extrabold text-slate-900 bg-white border border-slate-200 px-2.5 py-0.5 rounded shadow">Explore Bengal Tours</span>
+                                    <span class="text-[8px] text-slate-500 uppercase tracking-widest font-bold mt-0.5">DN Block, Sector V, Salt Lake</span>
+                                </div>
+                            </div>
+                            
+                            <!-- Bottom Map Controller -->
+                            <div class="relative z-10 bg-white/95 border border-slate-200 p-3 rounded text-[11px] flex justify-between items-center shadow-sm">
+                                <span class="font-semibold text-slate-800">Merlin Infinite, Sector V, Kolkata</span>
+                                <a href="https://maps.google.com" target="_blank" class="text-travelblue font-bold hover:underline flex items-center gap-1">Open Google Maps <i class="fa-solid fa-arrow-up-right-from-square text-[9px]"></i></a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+
+    </main>
+
+    <!-- Custom Booking Coordinator WhatsApp Modal (Enables Offline Simulated Routing Vibe) -->
+    <div id="booking-modal" class="fixed inset-0 z-50 bg-slate-900/40 backdrop-blur-sm hidden items-center justify-center p-4">
+        <div class="bg-white rounded-xl w-full max-w-md overflow-hidden shadow-2xl border border-slate-200">
+            <!-- Header WhatsApp theme bar -->
+            <div class="bg-emerald-600 text-white p-5 flex items-center gap-3">
+                <div class="w-10 h-10 rounded-full bg-emerald-500/20 flex items-center justify-center text-lg"><i class="fa-brands fa-whatsapp text-2xl"></i></div>
+                <div>
+                    <h4 class="font-bold text-xs sm:text-sm">Explore Bengal Booking Desk</h4>
+                    <p class="text-[10px] text-emerald-100">Official Sales Coordinator • Live</p>
+                </div>
+                <button onclick="closeBookingModal()" class="ml-auto text-emerald-200 hover:text-white"><i class="fa-solid fa-xmark text-lg"></i></button>
+            </div>
+            
+            <!-- Message Body Sim -->
+            <div class="p-6 space-y-4 bg-slate-50">
+                <p class="text-xs text-slate-600 leading-relaxed">We will direct your browser now to send the following pre-formatted tour inquiry directly to our official corporate WhatsApp support line: <strong class="text-slate-900">+91 98300 12345</strong></p>
+                <div class="bg-white p-4 rounded border border-slate-200 italic text-xs text-slate-700" id="whatsapp-draft-area">
+                    <!-- Dynamic Draft Query -->
+                </div>
+                <div class="text-[10px] text-slate-400">If you are using desktop, make sure you have WhatsApp Web or WhatsApp Desktop software configured.</div>
+            </div>
+
+            <!-- Footer Action buttons -->
+            <div class="p-5 border-t border-slate-200 flex justify-end gap-3 bg-white">
+                <button onclick="closeBookingModal()" class="px-4 py-2 border border-slate-300 text-slate-600 text-xs font-bold rounded hover:bg-slate-50 transition-colors">Cancel</button>
+                <button onclick="executeBookingRedirect()" class="px-5 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold rounded flex items-center gap-1.5 transition-colors">
+                    Send Inquiry <i class="fa-solid fa-paper-plane text-[10px]"></i>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Toast Notification Engine -->
+    <div id="travel-toast" class="fixed bottom-6 right-6 z-[100] transform translate-y-24 opacity-0 transition-all duration-300 bg-white border border-slate-200 p-4 rounded-xl flex items-center gap-3 shadow-2xl max-w-sm">
+        <div id="toast-state-icon" class="w-10 h-10 rounded-full flex items-center justify-center text-lg"></div>
+        <div>
+            <h4 id="toast-title-text" class="font-bold text-xs sm:text-sm text-slate-900"></h4>
+            <p id="toast-desc-text" class="text-[10px] sm:text-[11px] text-slate-500 mt-0.5 leading-relaxed"></p>
+        </div>
+        <button onclick="hideToast()" class="text-slate-400 hover:text-slate-600 text-xs ml-4"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <!-- Solid, Authentic Store Footer -->
+    <footer class="border-t border-slate-200 bg-traveldark text-slate-400 pt-16 pb-8 relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-10 pb-12 border-b border-slate-800">
+                
+                <!-- Col 1: Bio -->
+                <div class="md:col-span-4 space-y-5">
+                    <div class="flex items-center gap-3" onclick="navigateTo('home')">
+                        <div class="w-10 h-10 bg-travelblue text-white rounded flex items-center justify-center shadow-md">
+                            <i class="fa-solid fa-compass"></i>
+                        </div>
+                        <div>
+                            <span class="text-base font-extrabold tracking-tight text-white block">Explore Bengal Tours</span>
+                            <span class="text-[9px] tracking-widest text-slate-500 uppercase block -mt-1">Govt. Approved Travel Operator</span>
+                        </div>
+                    </div>
+                    <p class="text-xs leading-relaxed font-light">
+                        Trusted travel agency operating since 2012, crafting personalized and transparent family vacation memories across Sikkim, Darjeeling, Goa, Kerala, and beautiful global retreats.
+                    </p>
+                    <div class="flex gap-2.5 pt-1">
+                        <a href="#" class="w-9 h-9 rounded bg-slate-850 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition-all"><i class="fa-brands fa-facebook-f text-xs"></i></a>
+                        <a href="#" class="w-9 h-9 rounded bg-slate-850 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition-all"><i class="fa-brands fa-youtube text-xs"></i></a>
+                        <a href="#" class="w-9 h-9 rounded bg-slate-850 border border-slate-800 flex items-center justify-center text-slate-400 hover:text-white transition-all"><i class="fa-brands fa-instagram text-xs"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2: Navigation Links -->
+                <div class="md:col-span-2 space-y-4">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">Agency Links</h4>
+                    <ul class="space-y-2 text-xs">
+                        <li><button onclick="navigateTo('home')" class="hover:text-white transition-colors">Home Portal</button></li>
+                        <li><button onclick="navigateTo('packages')" class="hover:text-white transition-colors">Tour Packages</button></li>
+                        <li><button onclick="navigateTo('about')" class="hover:text-white transition-colors">Company Story</button></li>
+                        <li><button onclick="navigateTo('faqs')" class="hover:text-white transition-colors">Help & FAQs</button></li>
+                        <li><button onclick="navigateTo('contact')" class="hover:text-white transition-colors">Office Location</button></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3: Coordinates -->
+                <div class="md:col-span-3 space-y-4">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">Salt Lake Office</h4>
+                    <ul class="space-y-3.5 text-xs font-light">
+                        <li class="flex gap-2.5 items-start">
+                            <span class="text-travelblue text-sm mt-0.5"><i class="fa-solid fa-map-pin"></i></span>
+                            <span>Suite 402, Level 4, Merlin Infinite, DN Block, Sector V, Salt Lake, Kolkata, 700091</span>
+                        </li>
+                        <li class="flex gap-2.5 items-start">
+                            <span class="text-travelblue text-sm mt-0.5"><i class="fa-solid fa-envelope"></i></span>
+                            <span class="break-all">bookings@explorebengaltours.com</span>
+                        </li>
+                        <li class="flex gap-2.5 items-start">
+                            <span class="text-travelblue text-sm mt-0.5"><i class="fa-solid fa-phone"></i></span>
+                            <span>Direct Line: +91 98300 12345</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Col 4: Trust Widget -->
+                <div class="md:col-span-3 space-y-4">
+                    <h4 class="text-xs font-bold text-white uppercase tracking-wider">Govt. Registrations</h4>
+                    <p class="text-[11px] leading-relaxed">Registered with Ministry of Tourism. We strictly operate in compliance with regional safety guidelines and permit limits.</p>
+                    <div class="bg-slate-850 p-3.5 rounded border border-slate-800 text-[10px] text-slate-300 flex items-center gap-2.5">
+                        <i class="fa-solid fa-shield-halved text-travelblue text-xl"></i>
+                        <span><strong>100% Insured Travel</strong><br>Partnership with leading regional medical operators.</span>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright bar -->
+            <div class="pt-8 flex flex-col sm:flex-row justify-between items-center text-[11px] text-slate-500 gap-4">
+                <p>&copy; 2026 Explore Bengal Tours. All rights reserved across all operating channels.</p>
+                <div class="flex gap-4">
+                    <a href="#" class="hover:underline">Travelers Charter Policy</a>
+                    <span>&bull;</span>
+                    <a href="#" class="hover:underline">Payment Slabs Terms</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ============================================= -->
+    <!-- JAVASCRIPT ENGINE & SYSTEM LOGICS              -->
+    <!-- ============================================= -->
+    <script>
+        // Virtual Router Engine
+        function navigateTo(pageId) {
+            const pages = ['home', 'packages', 'about', 'faqs', 'contact'];
+            
+            pages.forEach(p => {
+                const element = document.getElementById(`page-${p}`);
+                if (p === pageId) {
+                    element.classList.remove('page-hidden');
+                    element.classList.add('page-active');
+                } else {
+                    element.classList.remove('page-active');
+                    element.classList.add('page-hidden');
+                }
+            });
+
+            // Update Desktop Nav Button states
+            document.querySelectorAll('.nav-btn').forEach(btn => {
+                if (btn.getAttribute('data-page') === pageId) {
+                    btn.className = "nav-btn px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-md transition-all text-travelblue bg-sky-50";
+                } else {
+                    btn.className = "nav-btn px-4 py-2 text-xs font-bold tracking-wider uppercase rounded-md transition-all text-slate-600 hover:bg-slate-100 hover:text-traveldark";
+                }
+            });
+
+            // Update Mobile Drawer button states
+            document.querySelectorAll('.mobile-nav-btn').forEach(btn => {
+                if (btn.getAttribute('data-page') === pageId) {
+                    btn.className = "mobile-nav-btn text-left py-3 px-4 rounded-lg text-xs font-bold tracking-wider uppercase text-travelblue bg-sky-50";
+                } else {
+                    btn.className = "mobile-nav-btn text-left py-3 px-4 rounded-lg text-xs font-bold tracking-wider uppercase text-slate-700 hover:bg-slate-100";
+                }
+            });
+
+            // Smooth scroll back to top
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        }
+
+        // Hamburger Menu Toggle
+        const burgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const burgerIcon = document.getElementById('hamburger-icon');
+
+        burgerBtn.addEventListener('click', () => {
+            toggleMenu();
+        });
+
+        function toggleMenu() {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                burgerIcon.className = "fa-solid fa-bars text-lg";
+            } else {
+                burgerIcon.className = "fa-solid fa-xmark text-lg";
+            }
+        }
+
+
+        // Authentic review rotation matrix
+        const reviewsDatabase = [
+            {
+                quote: "Our Sikkim family tour was organized flawlessly by Explore Bengal Tours. Right from the Gangtok airport pickup to our premium wooden resort stay in Lachung, Sanjeev managed all permissions securely. Highly recommended!",
+                name: "Dr. Anindya Sengupta",
+                sub: "Kolkata Resident"
+            },
+            {
+                quote: "Booked the Andaman Island cruise package. Radhanagar beach was mind-blowing. No hidden rates at Havelock, and our guide Sajeeb coordinated food options perfectly for my aging parents.",
+                name: "Ramanathan Iyer",
+                sub: "Jadavpur, Kolkata Local"
+            },
+            {
+                quote: "Beautiful Darjeeling tea-valley exploration organized by this agency. Safe transit in comfortable private Innova. Highly transparent hotel options and clear receipt setups.",
+                name: "Mitali Mukherjee",
+                sub: "Salt Lake Resident"
+            }
+        ];
+
+        let activeReviewIndex = 0;
+
+        function slideReviews(direction) {
+            activeReviewIndex += direction;
+            if (activeReviewIndex < 0) {
+                activeReviewIndex = reviewsDatabase.length - 1;
+            } else if (activeReviewIndex >= reviewsDatabase.length) {
+                activeReviewIndex = 0;
+            }
+
+            const targetReview = reviewsDatabase[activeReviewIndex];
+
+            const quoteEl = document.getElementById('local-review-quote');
+            const nameEl = document.getElementById('local-review-name');
+            const subEl = document.getElementById('local-review-sub');
+
+            // Apply smooth visual transition
+            quoteEl.style.opacity = 0;
+            nameEl.style.opacity = 0;
+            subEl.style.opacity = 0;
+
+            setTimeout(() => {
+                quoteEl.innerText = `"${targetReview.quote}"`;
+                nameEl.innerText = targetReview.name;
+                subEl.innerText = targetReview.sub;
+
+                quoteEl.style.opacity = 1;
+                nameEl.style.opacity = 1;
+                subEl.style.opacity = 1;
+            }, 180);
+        }
+
+        // Auto review slider rotation every 10 seconds
+        setInterval(() => {
+            slideReviews(1);
+        }, 10000);
+
+
+        // Client-side package filter logic
+        function filterPackages(zone) {
+            const cards = document.querySelectorAll('.package-card-node');
+
+            cards.forEach(card => {
+                const cardZone = card.getAttribute('data-zone');
+                if (zone === 'all' || cardZone === zone) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+
+            // Update Tab Designs
+            document.querySelectorAll('.pkg-cat-btn').forEach(btn => {
+                btn.className = "pkg-cat-btn px-4 py-2 rounded-full text-xs font-semibold uppercase transition-all bg-white border border-slate-300 text-slate-600 hover:text-travelblue hover:border-travelblue";
+            });
+            document.getElementById(`p-btn-${zone}`).className = "pkg-cat-btn px-4 py-2 rounded-full text-xs font-bold uppercase transition-all bg-travelblue text-white shadow-sm";
+        }
+
+
+        // Interactive Vacation Budget Planner Core Math
+        let currentHotelTier = "standard";
+
+        const destinationRates = {
+            darjeeling: { name: "Darjeeling Scenic Retreat", rate: 12499, BudgetOffset: -2500, PremiumOffset: 4500 },
+            sikkim: { name: "Sikkim Silk Route & Lakes", rate: 18999, BudgetOffset: -3000, PremiumOffset: 6000 },
+            goa: { name: "Goa Coastal & Heritage Tour", rate: 15499, BudgetOffset: -2000, PremiumOffset: 5000 },
+            kerala: { name: "Kerala Serene Houseboat Stay", rate: 21500, BudgetOffset: -3500, PremiumOffset: 7000 },
+            andaman: { name: "Andaman Coastal Cruise Experience", rate: 29999, BudgetOffset: -4000, PremiumOffset: 9500 },
+            thailand: { name: "Thailand & Bangkok Explorer", rate: 38999, BudgetOffset: -5000, PremiumOffset: 12000 }
+        };
+
+        function updateHotelTier(tier) {
+            currentHotelTier = tier;
+
+            // Paint radio frames
+            const tiers = ["budget", "standard", "premium"];
+            tiers.forEach(t => {
+                const label = document.getElementById(`label-h-${t}`);
+                const text = document.getElementById(`text-h-${t}`);
+
+                if (t === tier) {
+                    label.className = "border-2 border-travelblue rounded p-2 text-center block cursor-pointer transition-all";
+                    text.className = "text-[10px] font-bold uppercase block text-travelblue";
+                } else {
+                    label.className = "border border-slate-300 rounded p-2 text-center block cursor-pointer transition-all hover:border-travelblue";
+                    text.className = "text-[10px] font-bold uppercase block text-slate-500";
+                }
+            });
+
+            calculateCustomEstimate();
+        }
+
+        let estimatedGrandTotalValue = 0;
+        let lastSelectedDestTitle = "";
+
+        function calculateCustomEstimate() {
+            const destKey = document.getElementById('plan-destination').value;
+            const guestsCountInput = parseInt(document.getElementById('plan-guests').value) || 1;
+
+            const destNode = destinationRates[destKey];
+            lastSelectedDestTitle = destNode.name;
+
+            let baseVal = destNode.rate;
+            let offsetVal = 0;
+
+            if (currentHotelTier === "budget") {
+                offsetVal = destNode.BudgetOffset;
+            } else if (currentHotelTier === "premium") {
+                offsetVal = destNode.PremiumOffset;
+            }
+
+            const perPersonRateCalculated = baseVal + offsetVal;
+            estimatedGrandTotalValue = perPersonRateCalculated * guestsCountInput;
+
+            // Set UI elements
+            document.getElementById('val-dest-name').innerText = `${destNode.name} Estimate`;
+            document.getElementById('val-base-rate').innerText = `₹${baseVal.toLocaleString('en-IN')}`;
+            document.getElementById('val-tier-offset').innerText = offsetVal >= 0 ? `+ ₹${offsetVal.toLocaleString('en-IN')}` : `- ₹${Math.abs(offsetVal).toLocaleString('en-IN')}`;
+            document.getElementById('val-grand-total').innerText = `₹${estimatedGrandTotalValue.toLocaleString('en-IN')}`;
+        }
+
+        function openCustomPlanner() {
+            navigateTo('home');
+            // Smoothly focus on dynamic planner widget
+            setTimeout(() => {
+                document.getElementById('plan-destination').scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 350);
+        }
+
+
+        // Floating WhatsApp and booking coordinator engine
+        let currentWADraftMessage = "";
+
+        function triggerBooking(tourName, price, duration) {
+            currentWADraftMessage = `Hello Explore Bengal Tours! I am interested in booking the "${tourName}" package (Price: ${price} per person, Duration: ${duration}). Please let me know room availability for upcoming schedules.`;
+            showBookingModal(currentWADraftMessage);
+        }
+
+        function triggerPlannerBooking() {
+            const guestsCountInput = parseInt(document.getElementById('plan-guests').value) || 2;
+            currentWADraftMessage = `Hi Explore Bengal! I used your online trip planner tool and estimated a tour quote for "${lastSelectedDestTitle}". Travelers: ${guestsCountInput}, Stay Tier: ${currentHotelTier.toUpperCase()}, Total Quote: ₹${estimatedGrandTotalValue.toLocaleString('en-IN')}. Please confirm custom planning availability.`;
+            showBookingModal(currentWADraftMessage);
+        }
+
+        function showBookingModal(message) {
+            const modal = document.getElementById('booking-modal');
+            const draftArea = document.getElementById('whatsapp-draft-area');
+            
+            draftArea.innerText = `"${message}"`;
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeBookingModal() {
+            const modal = document.getElementById('booking-modal');
+            modal.classList.add('hidden');
+            modal.classList.remove('flex');
+        }
+
+        function executeBookingRedirect() {
+            closeBookingModal();
+            const formattedMsg = encodeURIComponent(currentWADraftMessage);
+            const waURL = `https://wa.me/919830012345?text=${formattedMsg}`;
+            
+            window.open(waURL, '_blank');
+            triggerToast('success', 'Inquiry Redirected', 'Opening corporate WhatsApp chat coordinates.');
+        }
+
+
+        // FAQ accordion management
+        function toggleFAQ(id) {
+            const content = document.getElementById(`faq-content-${id}`);
+            const icon = document.getElementById(`faq-icon-${id}`);
+
+            if (content.classList.contains('hidden')) {
+                content.classList.remove('hidden');
+                icon.innerHTML = '<i class="fa-solid fa-minus"></i>';
+            } else {
+                content.classList.add('hidden');
+                icon.innerHTML = '<i class="fa-solid fa-plus"></i>';
+            }
+        }
+
+
+        // Toast message engine
+        function triggerToast(type, title, desc) {
+            const toast = document.getElementById('travel-toast');
+            const icon = document.getElementById('toast-state-icon');
+            const titleEl = document.getElementById('toast-title-text');
+            const descEl = document.getElementById('toast-desc-text');
+
+            if (type === 'success') {
+                toast.className = "fixed bottom-6 right-6 z-[100] transform transition-all duration-300 bg-white border border-emerald-500/30 p-4 rounded-xl flex items-center gap-3 shadow-2xl max-w-sm";
+                icon.className = "w-10 h-10 rounded-full bg-emerald-500/10 text-emerald-600 flex items-center justify-center text-lg";
+                icon.innerHTML = '<i class="fa-solid fa-circle-check"></i>';
+            } else {
+                toast.className = "fixed bottom-6 right-6 z-[100] transform transition-all duration-300 bg-white border border-amber-500/30 p-4 rounded-xl flex items-center gap-3 shadow-2xl max-w-sm";
+                icon.className = "w-10 h-10 rounded-full bg-amber-500/10 text-amber-600 flex items-center justify-center text-lg";
+                icon.innerHTML = '<i class="fa-solid fa-circle-exclamation"></i>';
+            }
+
+            titleEl.innerText = title;
+            descEl.innerText = desc;
+
+            toast.classList.remove('translate-y-24', 'opacity-0');
+
+            setTimeout(() => {
+                hideToast();
+            }, 6000);
+        }
+
+        function hideToast() {
+            const toast = document.getElementById('travel-toast');
+            toast.classList.add('translate-y-24', 'opacity-0');
+        }
+
+
+        // Query Form pipelines
+        function submitQuery(event) {
+            event.preventDefault();
+            const name = document.getElementById('tc-name').value;
+            const phone = document.getElementById('tc-phone').value;
+            const dest = document.getElementById('tc-dest').value;
+
+            if (name && phone) {
+                triggerToast('success', 'Query Submitted!', `Thank you ${name}. Our travel coordinator will review your custom planning query to ${dest.toUpperCase()} and contact you shortly.`);
+                document.getElementById('travel-query-form').reset();
+            }
+        }
+
+
+        // Set operations check during load
+        window.onload = function() {
+            calculateCustomEstimate();
+            
+            const indicator = document.getElementById('live-operation-banner');
+            const d = new Date();
+            const hour = d.getHours();
+
+            if (hour >= 10 && hour <= 20) {
+                indicator.innerHTML = '<span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse"></span> Active Online (Office Open)';
+                indicator.className = "flex items-center gap-1.5 text-emerald-400";
+            } else {
+                indicator.innerHTML = '<span class="w-2 h-2 bg-amber-500 rounded-full animate-pulse"></span> Support Agents Online';
+                indicator.className = "flex items-center gap-1.5 text-amber-400";
+            }
+        };
+    </script>
+</body>
+</html>
