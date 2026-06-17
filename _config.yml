@@ -1,7 +1,12 @@
-site: .
+# Disable Jekyll and theme processing
+theme: null
+markdown: kramdown
+SCSS:
+  compile: false
 exclude:
   - .git
   - .gitignore
-  - .nojekyll
   - node_modules
   - vendor/bundle
+  - .nojekyll
+  - assets/css/style.scss
