@@ -1,12 +1,33 @@
-# Disable Jekyll and theme processing
+# Completely disable Jekyll theme processing for static HTML site
 theme: null
 markdown: kramdown
+future: true
+lsi: false
+jsx: false
+typesetter: false
+tag_page_layout: tag_page
+tag_page_dir: /tags
+
+# Disable SCSS/Sass processing entirely
 SCSS:
   compile: false
+
+# Exclude all unnecessary files from build
 exclude:
   - .git
   - .gitignore
-  - node_modules
-  - vendor/bundle
+  - .github
   - .nojekyll
+  - node_modules
+  - vendor
+  - Gemfile
+  - Gemfile.lock
   - assets/css/style.scss
+  - README.md
+  - LICENSE
+  - CNAME
+
+# Keep only what's needed for static HTML
+include:
+  - .nojekyll
+  - index.html
